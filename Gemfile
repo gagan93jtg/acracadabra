@@ -1,22 +1,26 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.22'
 gem 'choices'
 gem 'haml-rails'
 gem 'jquery-rails', '2.1.3'
 gem 'thin'
 gem 'bootstrap-sass', '2.0.4'
+gem 'mysql2'
+gem 'activerecord-mysql2-adapter'
+gem 'passenger', '5.0.30'
+gem 'mailcatcher', '0.5.12'
+
+# https://stackoverflow.com/questions/35893584/nomethoderror-undefined-method-last-comment-after-upgrading-to-rake-11
+gem 'rake', '< 11.0'
 
 group :development, :test do
-  gem 'sqlite3', '1.3.5'
   gem 'rspec-rails', '2.11.0'
-  gem 'foreman'
   gem 'capybara'
+  gem 'test-unit'
 end
 
-group :production do
-  gem 'pg', '0.14.1'
-end
+gem 'dotenv-rails', :require => 'dotenv/rails-now'
 
 # Gems used only for assets and not required
 # in production environments by default.

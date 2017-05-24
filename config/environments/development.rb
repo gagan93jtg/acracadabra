@@ -15,7 +15,6 @@ Acrar::Application.configure do
 
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
-  ActionMailer::Base.delivery_method = :test
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
@@ -35,5 +34,12 @@ Acrar::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
-  
+
+  ActionMailer::Base.smtp_settings = {
+    :address        => 'localhost',
+    :port           => '1025',
+    :authentication => :plain
+  }
+  ActionMailer::Base.delivery_method = :smtp
+
 end

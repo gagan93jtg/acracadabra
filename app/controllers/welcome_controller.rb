@@ -1,10 +1,10 @@
-# Copyright (c) 2012 Livefront, Inc.  
+# Copyright (c) 2012 Livefront, Inc.
 # See the file license.txt for copying permission.
 
 class WelcomeController < ApplicationController
   def home
-    from_address = Rails.configuration.from_address
-    recipients = Rails.configuration.recipients
+    from_address = ENV['FROM_ADDRESS']
+    recipients = ENV['RECIPIENTS']
     @config = {from_address: from_address, recipients: recipients}
   end
 

@@ -1,0 +1,11 @@
+<% @params.each do |k, v| %>
+  <% if k == 'action' || k == 'controller' || k == 'report' %>
+    <% next %>
+  <% end %>
+  <p> <%= k.downcase.camelize %>  </p>
+  <p>
+    <% v.to_s.split("\n").each do |line| %>
+      <%= line %> <br>
+    <% end %>
+  </p>
+<% end %>

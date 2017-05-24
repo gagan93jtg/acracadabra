@@ -11,6 +11,8 @@ require "sprockets/railtie"
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
   Bundler.require(*Rails.groups(:assets => %w(development test)))
+  Bundler.require(*Rails.groups)
+  Dotenv::Railtie.load
   # If you want your assets lazily compiled in production, use this line
   # Bundler.require(:default, :assets, Rails.env)
 end
@@ -64,8 +66,5 @@ module Acrar
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
-    
-    # Custom config entries. Refer to the Readme for documentation.
-    config.from_file 'settings.yml'
   end
 end
